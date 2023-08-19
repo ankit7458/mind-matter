@@ -1,0 +1,149 @@
+body {
+    background-color: #f3f2ef;
+}
+
+.logo {
+    color: #29549e;
+}
+
+.navbar-brand img {
+    height: 40px;
+}
+
+.navbar-c {  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.grid-c {
+    /* border: 1px solid red; */
+    height: 30rem;
+}
+
+
+/* body start here */
+
+.body-container{
+    /* border: 1px solid red; */
+    height: 600px;
+    margin-top: 100px;
+}
+.options-d{
+    /* border: 1px solid red; */
+    height: 400px;
+}
+.options {
+    margin-top: 20px;
+}
+
+.options button:hover {
+    background-color: rgb(181, 178, 178);
+    border-radius: 2px;
+    width: 8rem;
+}
+.ad { 
+    overflow: hidden;
+}
+.ad-d {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ad img {
+    border-radius: 8px;
+    height: 350px;
+    width: 200px;
+}
+
+/* post header */
+
+.create-post-block {
+    background-color: #FFFFFF;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    height: 7rem;
+    width: 100%;
+}
+
+.option-block {
+    margin: 1rem;
+    width: 100%;
+}
+.create-btn {
+    border-radius: 1rem;
+    border: none;
+    height: 2rem;
+    width: 29rem;
+}
+
+/* .modal-box {
+    width: 40rem;
+} */
+
+.option-btn button {
+    border-radius: 1rem;
+    border: none;
+    height: 2rem;
+    width: 10rem;
+}
+
+.option-btn button:hover {
+    background-color: #29549e;
+}
+/* cards  */
+
+.card-btn {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+.card-btn button {
+    border: none;
+    border-radius: 1rem;
+    background-color: none;
+    height: 2rem;
+    width: 7rem;
+}
+
+.card-btn button:hover {
+    background-color: rgb(215, 211, 211);
+}
+
+.card{
+    margin-top: 1rem;
+    width: 39rem;
+}
+
+.create-post {
+    background-color: #91C8E4;
+    border-radius: 1rem;
+    height: 27rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    width: 42rem;
+}
+
+.post-block h6 {
+    text-align: center;
+}
+.form-txt {
+    height: 18rem;
+}
+.post-btn {
+    border-radius: 5px;
+    margin-left: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

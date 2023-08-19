@@ -1,0 +1,41 @@
+<%- include('header'); -%>
+
+  <button type="button" class="create-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+    create post
+  </button>
+
+  <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">What you think?</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="/post" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <textarea class="form-control form-txt" name="createPost" id="exampleFormControlTextarea1"
+                rows="3"></textarea>
+            </div>
+            <div>
+              <label for="image">Upload Image</label>
+              <input type="file" id="image" name="image" value="" required />
+          </div>
+            <!-- <button type="submit" class="btn btn-primary my-3 post-btn">Post</button> -->
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Image</button>
+              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Post</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+
+      </div>
+    </div>
+  </div>

@@ -25,7 +25,7 @@
                 <button><i class="fa-regular fa-file-lines fa-xl"></i> Write</button>
             </div>
             <div class="col option-btn">
-                <button ><i class="fa-solid fa-fire fa-xl"></i> Popular</button>
+                <button><i class="fa-solid fa-fire fa-xl"></i> Popular</button>
             </div>
             <div class="col option-btn">
                 <button><i class="fa-solid fa-image fa-xl"></i> Photo</button>
@@ -45,12 +45,26 @@
                 </div>
                 <img src="/images/girl.jpg" class="card-img-top" alt="post-image">
                 <div class="card-btn">
-                    <button id="btn"><i class="fa-regular fa-thumbs-up fa-lg"></i>  <span id="display"></span> </button>
+                    <button id="btn"><i class="fa-regular fa-thumbs-up fa-lg"></i> <span id="display"></span> </button>
                     <button><i class="fa-regular fa-thumbs-down fa-lg"></i> </button>
-                    <button><i class="fa-regular fa-comments fa-lg"></i> </button>
+                    <button onClick="comment()"><i class="fa-regular fa-comments fa-lg"></i> </button>
+                    <!-- <button onClick="changeColor()" id="myText">Click me!</button> -->
                 </div>
+
+                <div class="comment">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" placeholder="comment">
+                        </div>
+                    </form>
+
+                </div>
+
+
+
             </div>
-        <% });%>
+            <% });%>
     </div>
 </div>
 
@@ -58,9 +72,9 @@
     let count = 0;
     let btn = document.getElementById("btn");
     let disp = document.getElementById("display");
-     
+
     btn.onclick = function () {
-                count++;
-    disp.innerHTML = count;
+        count++;
+        disp.innerHTML = count;
     }
 </script>

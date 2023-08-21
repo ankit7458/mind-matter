@@ -132,6 +132,15 @@ body {
     margin-left: 2px;
 }
 
+/* comment section */
+
+.comment {
+    background-color: none;
+    height: 4rem;
+    margin-left: 40px;
+    width: 80%;
+
+}
 
 
 

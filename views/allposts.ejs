@@ -43,7 +43,9 @@
                         <%= item.postContent.substring(0, 200) + "..." %>
                     </p>
                 </div>
-                <img src="/images/girl.jpg" class="card-img-top" alt="post-image">
+                <img src="../images/girl.jpg" alt="">
+                <!-- image need to get here from database -->
+
                 <div class="card-btn">
                     <button id="btn"><i class="fa-regular fa-thumbs-up fa-lg"></i> <span id="display"></span> </button>
                     <button><i class="fa-regular fa-thumbs-down fa-lg"></i> </button>
@@ -57,14 +59,14 @@
                             <input type="email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" placeholder="comment">
                         </div>
+                       
                     </form>
 
                 </div>
-
-
-
             </div>
             <% });%>
+
+
     </div>
 </div>
 
@@ -78,3 +80,4 @@
         disp.innerHTML = count;
     }
 </script>
+

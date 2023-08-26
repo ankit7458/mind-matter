@@ -54,7 +54,7 @@ router.post('/post',upload.single('image'),async(req,res) =>{
 		}
 		else {
 			item.save();
-			res.redirect('/');
+			res.render('home');
 		}
 	});
 
@@ -76,4 +76,6 @@ router.post('/post',upload.single('image'),async(req,res) =>{
 });
 
 
+
 module.exports = router;
+

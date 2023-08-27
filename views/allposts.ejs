@@ -43,25 +43,36 @@
                         <%= item.postContent.substring(0, 200) + "..." %>
                     </p>
                 </div>
-                <img src="../images/girl.jpg" alt="">
+                <!-- <img src="../images/girl.jpg" alt=""> -->
                 <!-- image need to get here from database -->
 
                 <div class="card-btn">
-                    <button id="btn"><i class="fa-regular fa-thumbs-up fa-lg"></i> <span id="display"></span> </button>
+                    <button id="btn" onclick="myFunction()"><i class="fa-regular fa-thumbs-up fa-lg"></i> <span
+                            id="display"></span> </button>
                     <button><i class="fa-regular fa-thumbs-down fa-lg"></i> </button>
                     <button onClick="comment()"><i class="fa-regular fa-comments fa-lg"></i> </button>
                     <!-- <button onClick="changeColor()" id="myText">Click me!</button> -->
                 </div>
 
                 <div class="comment">
-                    <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" placeholder="comment">
-                        </div>
-                       
-                    </form>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1">
 
+                            </div>
+                            <div class="col-lg-9">
+                                <form method="post" action="/comment">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="comment">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn btn-primary">Post</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <% });%>
@@ -78,6 +89,7 @@
     btn.onclick = function () {
         count++;
         disp.innerHTML = count;
-    }
-</script>
 
+    }
+
+</script>

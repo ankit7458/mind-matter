@@ -8,7 +8,6 @@ const dataBaseConnect = require('./db');
 require('dotenv').config();
 
 
-
 const app = express();
 dataBaseConnect();
 app.set('view engine','ejs')

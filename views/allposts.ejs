@@ -11,7 +11,7 @@
 </script> -->
 
 <div>
-    <div class="create-post-block">
+    <div class="card create-post-block">
         <div class="row option-block">
             <div class="col-lg-2">
                 <i class="fa-solid fa-user fa-xl pt-3 pl-2"></i>
@@ -22,13 +22,18 @@
         </div>
         <div class="row option-block">
             <div class="col option-btn">
-                <button><i class="fa-regular fa-file-lines fa-xl"></i> Write</button>
+                <!-- <button></button> -->
+                <button type="button" class="create-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <i class="fa-regular fa-file-lines fa-xl"></i> Write
+                </button>
             </div>
             <div class="col option-btn">
-                <button ><i class="fa-solid fa-fire fa-xl"></i> Popular</button>
+                <button><i class="fa-solid fa-fire fa-xl"></i> Popular</button>
             </div>
             <div class="col option-btn">
-                <button><i class="fa-solid fa-image fa-xl"></i> Photo</button>
+                <button type="button" class="create-btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                    <i class="fa-solid fa-image fa-xl"></i> Photo
+                </button>
             </div>
         </div>
 
@@ -43,14 +48,41 @@
                         <%= item.postContent.substring(0, 200) + "..." %>
                     </p>
                 </div>
-                <img src="/images/girl.jpg" class="card-img-top" alt="post-image">
+                <!-- <img src="../images/girl.jpg" alt=""> -->
+                <!-- image need to get here from database -->
+
                 <div class="card-btn">
-                    <button id="btn"><i class="fa-regular fa-thumbs-up fa-lg"></i>  <span id="display"></span> </button>
+                    <button id="btn" onclick="myFunction()"><i class="fa-regular fa-thumbs-up fa-lg"></i> <span
+                            id="display"></span> </button>
                     <button><i class="fa-regular fa-thumbs-down fa-lg"></i> </button>
-                    <button><i class="fa-regular fa-comments fa-lg"></i> </button>
+                    <button onClick="comment()"><i class="fa-regular fa-comments fa-lg"></i> </button>
+                    <!-- <button onClick="changeColor()" id="myText">Click me!</button> -->
+                </div>
+
+                <div class="comment">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1">
+
+                            </div>
+                            <div class="col-lg-9">
+                                <form method="post" action="/comment">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp" placeholder="comment">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn btn-primary">Post</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        <% });%>
+            <% });%>
+
+
     </div>
 </div>
 
@@ -58,9 +90,11 @@
     let count = 0;
     let btn = document.getElementById("btn");
     let disp = document.getElementById("display");
-     
+
     btn.onclick = function () {
-                count++;
-    disp.innerHTML = count;
+        count++;
+        disp.innerHTML = count;
+
     }
+
 </script>

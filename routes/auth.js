@@ -7,6 +7,10 @@ var upload = multer({ storage: storage });
 const postContent = require('../models/postdata')
 
 
+router.get('/test', (req, res) => {
+	res.render('test');
+})
+
 router.get('/',async (req,res)=>{
     postContent.find()
         .then(function(queryResult){

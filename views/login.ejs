@@ -1,5 +1,36 @@
 <%- include('header'); -%>
 
-<button class="login-btn" type="button">
+
+<button id="loginButton" class="userIcon">
     Login
 </button>
+
+<div id="loginPopup" class="popup">
+    <div class="popup-content">
+        <form action="/login" method="post">
+            <div class="form-group signup-form">
+                <!-- <label for="exampleInputEmail1">Email address</label> -->
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group signup-form">
+                <!-- <label for="exampleInputPassword1">Password</label> -->
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+        </form>
+        <button class="user-button" id="closePopup">
+            Login
+        </button>
+    </div>
+</div>
+
+
+<script>
+    loginButton.addEventListener("click", function () {
+        loginPopup.classList.add("show");
+    });
+
+    closePopup.addEventListener("click", function () {
+        loginPopup.classList.remove("show");
+    });
+</script>

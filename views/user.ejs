@@ -1,6 +1,6 @@
 <%- include('header') -%>
 
-    <button id="myButton" class="userIcon">
+    <button id="userButton" class="userIcon">
         <i class="fa-solid fa-user fa-xl" style="color: #ffffff;"></i>
     </button>
 
@@ -8,7 +8,7 @@
         <div class="popup-content">
             <%- include('login') -%>
             <hr>
-            <%- include('signup') -%>
+            <!-- <%- include('signup') -%> -->
             <hr>
             <button class="user-close-btn" id="closePopup">
                 <i class="fa-solid fa-x fa-sm"></i>
@@ -18,7 +18,7 @@
 
 
     <script>
-        myButton.addEventListener("click", function () {
+        userButton.addEventListener("click", function () {
             userPopup.classList.add("show");
         });
 

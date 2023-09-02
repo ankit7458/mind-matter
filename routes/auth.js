@@ -93,36 +93,12 @@ router.post('/post',upload.single('image'),async(req,res) =>{
 
 // -------------------------------creting user -------------------
 
-// router.post('/signup' , (req, res) => {
-	
-	// try {
-	// 	// check weather user alredy present in the database or not 
-	// 	let user = User.findOne({email : req.body.email});
-
-	// 	if(user){
-	// 		return res.send(400).json({error : "user with this email already exists!"})
-	// 	}
-	// 	user = await User.create({
-	// 		name : req.body.name,
-	// 		email : req.body.email,
-	// 		password : req.body.password
-	// 	})
-	// 	console.log(req.body.name);
-	// } catch (error) {
-	// 	console.log(error);
-	// }
-// 	console.log(req.body);
-// 	res.send("Hello")
-// })
 
 router.post('/signup',[
 	body('name','Name should be empty').notEmpty(),
 	body('email', 'Entere valid email').isEmail(),
 	body('password','Password should not less than 5 characters').isLength({min : 5})
 ], async(req , res) => {
-
-	
-
 	try {
 		let user = await User.findOne({email : req.body.email});
 
@@ -136,13 +112,9 @@ router.post('/signup',[
 			password : req.body.password
 		})
 	} catch (error) {
-		
+		console.error(error.message);
+		res.status(500).json({error : "Some internal error occured"})
 	}
-	
-	console.log(req.body)
-	const user = User(req.body);
-	user.save();
-	res.send(req.body);
 });
 
 

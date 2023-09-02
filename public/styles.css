@@ -237,11 +237,51 @@ body {
     background: none;
 }
 
-/* -----------------------singup form ----------------- */
+/* -----------------------singup/login form ----------------- */
+.signup-log {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+.signup-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    border-radius: 10px;
+    width: 40%;
+    font-weight: bolder;
+}
+.signup-content button {
+    display: block;
+    margin: 0 auto;
+}
+.show {
+    display: block;
+}
 
+.signup-btn {
+    border: 1px solid #888888;
+    border-radius: 5px;
+    background-color: #efebeb;
+    height: 2.5rem;
+    width: 6.4rem;
+
+}
+
+.signup-btn:hover {
+    border: 1px solid #888888;
+}
 .signup-form {
     margin: 30px;
     text-align: center;
+    width: 25rem;
 }
 
 .signup-form input {

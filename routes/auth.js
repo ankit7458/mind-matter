@@ -111,6 +111,8 @@ router.post('/signup',[
 			email : req.body.email,
 			password : req.body.password
 		})
+
+		res.redirect('/')
 	} catch (error) {
 		console.error(error.message);
 		res.status(500).json({error : "Some internal error occured"})

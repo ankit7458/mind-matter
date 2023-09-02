@@ -3,8 +3,10 @@ const router = express.Router();
 var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
+const { body, validationResult } = require('express-validator');
 var upload = multer({ storage: storage });
 const postContent = require('../models/postdata')
+const User = require('../models/user')
 
 
 router.get('/test', (req, res) => {
@@ -28,9 +30,11 @@ router.get('/login',(req, res) => {
 	res.render('login')
 });
 
-router.get('/signup',(req , res) => {
-	res.render('signup')
+
+router.get('/signup', (req, res) => {
+	res.render("signup")
 })
+
 
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -40,6 +44,8 @@ var storage = multer.diskStorage({
 		cb(null, file.fieldname + '-' + Date.now())
 	}
 });
+
+// -----------------creteing post here ---------------------------
 
 router.post('/post',upload.single('image'),async(req,res) =>{
 
@@ -83,6 +89,61 @@ router.post('/post',upload.single('image'),async(req,res) =>{
     // }
 });
 
+
+
+// -------------------------------creting user -------------------
+
+// router.post('/signup' , (req, res) => {
+	
+	// try {
+	// 	// check weather user alredy present in the database or not 
+	// 	let user = User.findOne({email : req.body.email});
+
+	// 	if(user){
+	// 		return res.send(400).json({error : "user with this email already exists!"})
+	// 	}
+	// 	user = await User.create({
+	// 		name : req.body.name,
+	// 		email : req.body.email,
+	// 		password : req.body.password
+	// 	})
+	// 	console.log(req.body.name);
+	// } catch (error) {
+	// 	console.log(error);
+	// }
+// 	console.log(req.body);
+// 	res.send("Hello")
+// })
+
+router.post('/signup',[
+	body('name','Name should be empty').notEmpty(),
+	body('email', 'Entere valid email').isEmail(),
+	body('password','Password should not less than 5 characters').isLength({min : 5})
+], async(req , res) => {
+
+	
+
+	try {
+		let user = await User.findOne({email : req.body.email});
+
+		if(user){
+			return res.status(400).json({error : "user with this email already exists!"})
+		}
+
+		user = await User.create({
+			name : req.body.name,
+			email : req.body.email,
+			password : req.body.password
+		})
+	} catch (error) {
+		
+	}
+	
+	console.log(req.body)
+	const user = User(req.body);
+	user.save();
+	res.send(req.body);
+});
 
 
 module.exports = router;

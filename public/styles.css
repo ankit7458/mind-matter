@@ -1,15 +1,38 @@
 body {
     background-color: #f3f2ef;
 }
-
 .logo {
     color: #29549e;
 }
 
+/* -----------Global classes----------------- */
+
+.btn-des {
+    border: 1px solid #888888;
+    border-radius: 5px;
+    background-color: #efebeb;
+    height: 2.3rem;
+    width: 6.2rem;
+}
+.btn-des:hover {
+    border: 1px solid #888888;
+}
+
+.form-close-btn {
+    border: 1px solid #888888;
+    border-radius: 5px;
+    height: 2rem;
+    width: 3rem;
+}
+.close-btn {
+    /* text-align: left; */
+    width: 45px;
+}
+/* ---------------Navbar-------------- */
+
 .navbar-brand img {
     height: 40px;
 }
-
 .navbar-c {  
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     height: 50px;
@@ -72,7 +95,7 @@ body {
 }
 
 
-/* body start here */
+/*---------------------------- body start here ------------------ */
 
 .body-container{
     /* border: 1px solid red; */
@@ -95,7 +118,7 @@ body {
     width: 200px;
 }
 
-/* post header */
+/* --------------------post header------------------------------ */
 
 .create-post-block {
     background-color: #FFFFFF;
@@ -107,7 +130,6 @@ body {
     width: 100%;
 }
 
-
 .create-btn {
     border-radius: 1rem;
     border: none;
@@ -118,6 +140,9 @@ body {
 .create-btn button:hover {
     background-color: #acadb0;
 }
+
+
+
 
 /* ----------------------------Side block ------------------------ */
 
@@ -158,6 +183,8 @@ body {
     width: 39rem;
 }
 
+/* ---------------------creste post content box--------------------- */
+
 .create-post {
     background-color: #91C8E4;
     border-radius: 1rem;
@@ -170,15 +197,24 @@ body {
 .post-block h6 {
     text-align: center;
 }
-.form-txt {
+.post-form {
+    border: none;
     height: 18rem;
+    outline: none;
+    
 }
-.post-btn {
-    border-radius: 5px;
-    margin-left: 2px;
+.form-control:focus {
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+.modal-footer {
+    height: 3rem;
 }
 
-/* comment section */
+
+/* -------------------comment section-------------- */
 
 .comment {
     background-color: none;
@@ -266,18 +302,6 @@ body {
     display: block;
 }
 
-.signup-btn {
-    border: 1px solid #888888;
-    border-radius: 5px;
-    background-color: #efebeb;
-    height: 2.5rem;
-    width: 6.4rem;
-
-}
-
-.signup-btn:hover {
-    border: 1px solid #888888;
-}
 .signup-form {
     margin: 30px;
     text-align: center;
@@ -289,13 +313,6 @@ body {
     text-align: center;
 }
 
-.user-button {
-    border: none;
-    border: 1px solid #888888;
-    border-radius: 10px;
-    height: 2.5rem;
-    width: 6rem;   
-}
 
 
 

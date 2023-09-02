@@ -5,9 +5,14 @@
     Login
 </button>
 
-<div id="loginPopup" class="popup">
-    <div class="popup-content">
-        <form action="/login" method="post">
+<div id="loginPopup" class="signup-log">
+    <div class="signup-content">
+        <div class="close-btn">
+            <button class="form-close-btn" id="closePopup">
+                <i class="fa-solid fa-x fa-sm"></i>
+            </button> 
+        </div>
+        <form action="/login" method="post">  
             <div class="form-group signup-form">
                 <!-- <label for="exampleInputEmail1">Email address</label> -->
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -17,10 +22,10 @@
                 <!-- <label for="exampleInputPassword1">Password</label> -->
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
             </div>
-        </form>
-        <button class="user-button" id="closePopup">
-            Login
-        </button>
+            <button type="submit" class="btn-des" >
+                Login
+            </button>
+        </form>      
     </div>
 </div>
 
@@ -33,4 +38,5 @@
     closePopup.addEventListener("click", function () {
         loginPopup.classList.remove("show");
     });
+    // id="closePopup"
 </script>

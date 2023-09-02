@@ -19,17 +19,14 @@
         <div class="modal-body">
           <form action="/post" method="post" enctype="multipart/form-data">
             <div class="form-group">
-              <textarea class="form-control form-txt" name="createPost" id="exampleFormControlTextarea1"
+              <textarea class="form-control post-form" name="createPost" id="exampleFormControlTextarea1"
                 rows="3"></textarea>
             </div>
-            <div>
-              <label for="image">Upload Image</label>
-              <input type="file" id="image" name="image" value="" required />
-            </div>
+            
             <!-- <button type="submit" class="btn btn-primary my-3 post-btn">Post</button> -->
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Image</button>
-              <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Post</button>
+              <button type="submit" class="btn btn-des image-btn">Photo<input type="file" id="image" name="image" value="" style="visibility:hidden;" required /></button>
+              <button type="submit" class="btn btn-des" data-bs-dismiss="modal">Post</button>
             </div>
           </form>
         </div>

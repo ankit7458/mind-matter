@@ -1,38 +1,28 @@
 <%- include('header') -%>
 
-    <!-- <button class="login-btn" type="button">
-    Signup
-</button> -->
-
-
     <button id="signupButton" class="userIcon">
         Signup
     </button>
 
-    <div id="signupPopup" class="popup">
-        <div class="popup-content">
-            <form action="/signup" method="post">
-                <div class="form-group signup-form">
-                    <!-- <label for="exampleInputEmail1">Email address</label> -->
-                    <input type="text" class="form-control" name="name" id="exampleInputNmae" aria-describedby="emailHelp"
-                        placeholder="Enter Name">
+    <div id="signupPopup" class="signup-log">
+        <div class="signup-content">
+            <form method="post" action="\signup" class="container">
+                <div class="form-group signup-form" >
+                    <input type="text" class="form-control" name="name" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="name">
                 </div>
                 <div class="form-group signup-form">
-                    <!-- <label for="exampleInputEmail1">Email address</label> -->
-                    <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
+                    <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group signup-form">
-                    <!-- <label for="exampleInputPassword1">Password</label> -->
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                    <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+                        placeholder="Password">
                 </div>
+                <button type="submit" class="btn signup-btn">Submit</button>
             </form>
-            <button type="submit" class="user-button" > <!--id="closePopup" need to add here-->
-                Signup
-            </button>
         </div>
     </div>
-
 
     <script>
         signupButton.addEventListener("click", function () {

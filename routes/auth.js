@@ -1,13 +1,14 @@
 const express = require('express');
-const router = express.Router();
-var multer = require('multer');
 var fs = require('fs');
 var path = require('path');
+const router = express.Router();
+var multer = require('multer');
+const bcrypt = require('bcrypt');
 const { body, validationResult } = require('express-validator');
 var upload = multer({ storage: storage });
 const postContent = require('../models/postdata')
 const User = require('../models/user');
-const { error } = require('console');
+
 
 
 router.get('/test', (req, res) => {
@@ -74,7 +75,6 @@ router.post('/post', upload.single('image'), async (req, res) => {
 		});
 
 
-
 	// try {
 	//     const userPost = await  postContent.create({
 	//         postContent : req.body.createPost,
@@ -107,10 +107,13 @@ router.post('/signup', [
 			return res.status(400).json({ error: "user with this email already exists!" })
 		}
 
+		const salt = await bcrypt.genSalt(10);
+		const secPass = await bcrypt.hash(req.body.password, salt);
+
 		user = await User.create({
 			name: req.body.name,
 			email: req.body.email,
-			password: req.body.password
+			password: secPass
 		})
 
 		res.redirect('/')
@@ -122,20 +125,32 @@ router.post('/signup', [
 
 // ---------------------------creating user login ---------------------------------
 
-// router.post('/login', async (req, res) => {
+router.post('/login', [
+	body('email', 'Entere valid email').isEmail(),
+	body('password', 'Password should not less than 5 characters').isLength({ min: 5 })
+], async (req, res) => {
 
-// 	// try {
-// 		let userData = await User.findOne({ email: req.body.email });
-// 		if (userData) {
-// 			res.redirect('/')
-// 		}else {
-// 			console.log(error)
-// 		}
-// 	// } catch (error) {
-// 	// 	console.log(error.message);
-// 	// 	return res.status(500).json({error : "please eneter valid credential"});
-// 	// }
-// });
+	const errors = validationResult(req);
+	if (!errors.isEmpty()) {
+		return res.status(400).json({ errors: errors.array() });
+	}
+	const { email, password } = req.body
+	try {
+		let user = await User.findOne({ email });
+		if (!user) {
+			success = false
+			return res.status(400).json({ error: "Please try to login with correct credentials" });
+		}
+
+		const comparePass = await bcrypt.compare(password, user.password)
+		if (comparePass) {
+			res.redirect('/')
+		}
+	} catch (error) {
+		console.log(error.message);
+		return res.status(500).json({ error: "please eneter valid credential" });
+	}
+});
 
 
 

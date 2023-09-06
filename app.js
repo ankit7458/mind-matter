@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({extended : true}))
 app.use(bodyParser.json())
 app.use(express.json());
 
-
+global.homePath = path.join(__dirname);
+console.log("checking path", homePath)
 
 app.use('/', require('./routes/auth'));
 

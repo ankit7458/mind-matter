@@ -13,7 +13,7 @@ const User = require('../models/user');
 
 router.get('/test', (req, res) => {
 	res.render('test');
-})
+});
 
 router.get('/', async (req, res) => {
 	postContent.find()
@@ -22,11 +22,11 @@ router.get('/', async (req, res) => {
 				newListItems: queryResult
 			})
 		})
-})
+});
 
 router.get('/post', (req, res) => {
 	res.render('createpost')
-})
+});
 
 router.get('/login', (req, res) => {
 	res.render('login')
@@ -35,26 +35,28 @@ router.get('/login', (req, res) => {
 
 router.get('/signup', (req, res) => {
 	res.render("signup")
-})
+});
 
 
 var storage = multer.diskStorage({
 	destination: (req, file, cb) => {
-		cb(null, '../uploads')
+		cb(null, 'public/uploads')
 	},
 	filename: (req, file, cb) => {
 		cb(null, file.fieldname + '-' + Date.now())
 	}
 });
 
+var upload = multer({ storage: storage });
+
 // -----------------creteing post here ---------------------------
 
 router.post('/post', upload.single('image'), async (req, res) => {
 
-	// var newPath = fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename))
+	var newPath = fs.readFileSync(homePath + '/public/uploads/' + req.file.filename)
 	// console.log(newPath)
-	const host = req.hostname;
-	const newPath = req.protocol + "://" + host + '/' + req.file.filename;
+	// const host = req.hostname;
+	// const newPath = req.protocol + "://" + host + '/' + req.file.filename;
 
 	var obj = {
 		postContent: req.body.createPost,
@@ -75,19 +77,19 @@ router.post('/post', upload.single('image'), async (req, res) => {
 		});
 
 
-	// try {
-	//     const userPost = await  postContent.create({
-	//         postContent : req.body.createPost,
-	//         img: {
-	//             data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
-	//             contentType: 'image/png'
-	//         }
-	//     });
-	//     res.redirect('/')
-	// } catch (error) {
-	//     console.log(error)
-	//     // return res.status(400).json({ error: "Some interenal error occured" })
-	// }
+	try {
+	    const userPost = await  postContent.create({
+	        postContent : req.body.createPost,
+	        img: {
+	            data: fs.readFileSync(path.join(__dirname + '/uploads/' + req.file.filename)),
+	            contentType: 'image/png'
+	        }
+	    });
+	    res.redirect('/')
+	} catch (error) {
+	    console.log(error)
+	    // return res.status(400).json({ error: "Some interenal error occured" })
+	}
 });
 
 

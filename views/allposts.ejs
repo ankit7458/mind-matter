@@ -47,10 +47,8 @@
                     <p class="card-text">
                         <%= item.postContent.substring(0, 200) + "..." %>
                     </p>
-                        <img src="data:item/<%=item.img.contentType%>;base64%>" />
+                    <img src="data:<%=item.img.contentType%>;base64"  alt="image not found"/>
                 </div>
-
-
 
                 <div class="card-btn">
                     <button id="btn" onclick="myFunction()"><i class="fa-regular fa-thumbs-up fa-lg"></i> <span

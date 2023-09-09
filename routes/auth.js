@@ -16,13 +16,27 @@ router.get('/test', (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-	postContent.find()
+	postContent.find({})
 		.then(function (queryResult) {
 			res.render('home', {
 				newListItems: queryResult
 			})
+			// console.log("image data",queryResult)
 		})
 });
+
+
+// router.get('/check', (req, res) => {
+// 	postContent.find({})
+// 		.then((data, err) => {
+// 			if (err) {
+// 				console.log(err);
+// 			}
+// 			res.render('imagepage', { newListItems: data })
+// 		})
+// });
+
+
 
 router.get('/post', (req, res) => {
 	res.render('createpost')

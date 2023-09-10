@@ -3,3 +3,4 @@ db.js
 package.json
 package-lock.json
 .gitignore
+.env
